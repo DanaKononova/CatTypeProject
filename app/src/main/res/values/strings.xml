@@ -1,12 +1,20 @@
 <resources>
     <string name="app_name">Cat Project</string>
     <string-array name="cats">
-        <item>Bengalian</item>
+        <item>Persian</item>
         <item>Abyssinian</item>
+        <item>Munchkin</item>
+        <item>Oriental</item>
+        <item>Siamese</item>
+        <item>Siberian</item>
     </string-array>
     <string-array name="catsKeys">
-        <item>beng</item>
+        <item>pers</item>
         <item>abys</item>
+        <item>munc</item>
+        <item>orie</item>
+        <item>siam</item>
+        <item>sibe</item>
     </string-array>
     <string name="button">Next Picture</string>
 </resources>
