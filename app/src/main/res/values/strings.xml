@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Cat Project</string>
+    <string-array name="cats">
+        <item>Bengalian</item>
+        <item>Abyssinian</item>
+    </string-array>
+    <string-array name="catsKeys">
+        <item>beng</item>
+        <item>abys</item>
+    </string-array>
+    <string name="button">Next Picture</string>
 </resources>
