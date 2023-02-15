@@ -6,15 +6,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.catproject.data.CatResponse
 import com.example.catproject.data.RepositoryImpl
+import com.example.catproject.domain.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CatViewModel: ViewModel() {
+@HiltViewModel
+class CatViewModel @Inject constructor(
+    private val repository: Repository
+) : ViewModel() {
     private val _catLiveData = MutableLiveData<List<CatResponse>>()
     val catLiveData: LiveData<List<CatResponse>> get() = _catLiveData
 
     fun getCatImage(typeKey: String) {
         viewModelScope.launch {
-            _catLiveData.value = RepositoryImpl().getImage(typeKey)
+            _catLiveData.value = repository.getImage(typeKey)
         }
     }
 }
