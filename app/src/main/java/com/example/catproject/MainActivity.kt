@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.Spinner
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
+import com.example.catproject.data.model.CatType
 import com.example.catproject.ui.CatViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val spinner = findViewById<Spinner>(R.id.spinner)
+        val types = listOf(CatType("pers", "Persian"), CatType("abys", "Abyssinian"),
+            CatType("munc", "Munchkin"), CatType("orie", "Oriental"),
+            CatType("siam", "Siamese"), CatType("sibe", "Siberian"),)
         val catTypes = resources.getStringArray(R.array.cats)
         val catTypesKeys = resources.getStringArray(R.array.catsKeys)
         val image = findViewById<ImageView>(R.id.iv_cat)
@@ -32,14 +36,14 @@ class MainActivity : AppCompatActivity() {
             )
             spinner.adapter = adapter
 
-            button.setOnClickListener {
-                viewModel.catLiveData.observe(this) {
-                    Glide
-                        .with(this)
-                        .load(it[0].imageUrl)
-                        .into(image)
-                }
+            viewModel.catLiveData.observe(this) {
+                Glide
+                    .with(this)
+                    .load(it[0].imageUrl)
+                    .into(image)
+            }
 
+            button.setOnClickListener {
                 viewModel.getCatImage(catTypesKeys[spinner.selectedItemPosition])
             }
         }
