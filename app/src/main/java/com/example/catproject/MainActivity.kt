@@ -11,7 +11,9 @@ import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.example.catproject.data.model.CatType
 import com.example.catproject.ui.CatViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<CatViewModel>()
