@@ -1,6 +1,5 @@
 package com.example.catproject
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -8,18 +7,22 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.catproject.data.model.CatType
+import com.example.catproject.di.ViewModelFactory
 import com.example.catproject.ui.CatViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<CatViewModel>()
+    @Inject
+    lateinit var factory: ViewModelFactory
+    private val viewModel: CatViewModel by viewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (applicationContext as HiltApplication).appComponent.inject(this)
         setContentView(R.layout.activity_main)
 
         val spinner = findViewById<Spinner>(R.id.spinner)
