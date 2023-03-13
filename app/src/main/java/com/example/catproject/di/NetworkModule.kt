@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 class NetworkModule {
+
     @Provides
     fun getRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
             .baseUrl("https://api.thecatapi.com/v1/")

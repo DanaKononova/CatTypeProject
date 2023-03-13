@@ -7,6 +7,7 @@ import dagger.Module
 
 @Module
 abstract class RepositoryModule {
+
     @Binds
     abstract fun getRepository(impl: RepositoryImpl): Repository
 }

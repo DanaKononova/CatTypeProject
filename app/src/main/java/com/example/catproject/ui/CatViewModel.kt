@@ -12,6 +12,7 @@ import javax.inject.Inject
 class CatViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
+
     private val _catLiveData = MutableLiveData<List<CatResponse>>()
     val catLiveData: LiveData<List<CatResponse>> get() = _catLiveData
 

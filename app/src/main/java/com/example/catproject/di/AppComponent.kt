@@ -11,6 +11,7 @@ import javax.inject.Singleton
     modules = [NetworkModule::class, RepositoryModule::class, ViewModelModule::class]
 )
 interface AppComponent{
+
     @Component.Factory
     interface Factory {
         fun create(@BindsInstance context: Context): AppComponent
